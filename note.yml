@@ -1,0 +1,54 @@
+curl -X POST \
+          -H "Authorization: Bearer xoxb-5696225531506-5690738254486-HqAX8QO2fCsotIJXIoCOY4cX" \
+          -H 'Content-type: application/json' \
+          --data "{\"text\":\"Hello :smile:\", \"channel\":\"C05LVU7TGPK"}" \
+          https://slack.com/api/chat.postMessage
+
+curl -s -f -X POST -H 'Content-type: application/json' -H "Authorization: Bearer xoxb-5696225531506-5690738254486-HqAX8QO2fCsotIJXIoCOY4cX" --data "{\"text\":\"Hello :smile:\", \"channel\":\"C05LVU7TGPK"}" https://slack.com/api/chat.postMessage
+
+psql -h database-1.cihle5u3pbgt.us-east-1.rds.amazonaws.com -p 5432 -U postgres -d postgres
+
+SLACK_ACCESS_TOKEN=xoxb-5696225531506-5690738254486-HqAX8QO2fCsotIJXIoCOY4cX
+SLACK_DEFAULT_CHANNEL=C05LVU7TGPK
+
+AWS_ACCESS_KEY_ID=ASIAQZPP5ASUYYJ3DBN5
+AWS_SECRET_ACCESS_KEY=zwTVDh/0S7z+LJxr9lIyYR8FxqvJ/QIB6GkvpG2e
+AWS_SESSION_TOKEN=FwoGZXIvYXdzEMb//////////wEaDBXoHeWeITzktPC8gCLVAfBJTPdCgZx+mOO3Im1+L2wbj596f6TOpk6TB6SMJ733YMhYTC1ojV7RFpLgxH4EyEgf5aQwJSL8vZuTNoZwUpOqWhXbfDCtdQnJ/fiPA5dMWy+Nqy3hDCvOt2SCUNbhrz3FsW/ZR/8gklrC3LKxN0IwMlIqHeRW9p8OAylk+T2g/BIWBppkZ4oWfaS9VNt5OqjrKyl4opc1wybyN5hNkkaTVdiONgfY74Mo4QAbptQGc0uLUa/WCNn4WE91sK1y1wPmxfDdoj2qZGWiNAoR5kfoXKW6QiiGmr6mBjItWdHtcoERYg4O98ieY6IdTRaFpEs4ZLLuZ2hMA46cVu1AqknHwqTx7UFgeK6i
+AWS_DEFAULT_REGION=us-east-1
+
+TYPEORM_CONNECTION=postgres
+TYPEORM_MIGRATIONS_DIR=./src/migrations
+TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts
+TYPEORM_MIGRATIONS=./src/migrations/*.ts
+TYPEORM_PORT=5432
+TYPEORM_USERNAME=postgres
+TYPEORM_PASSWORD=nhan1234
+TYPEORM_DATABASE=postgres
+TYPEORM_HOST=database-1.cihle5u3pbgt.us-east-1.rds.amazonaws.com
+database-1.cihle5u3pbgt.us-east-1.rds.amazonaws.com
+
+aws cloudformation deploy \
+    --template-file .circleci/files/backend.yml \
+    --stack-name "initialstack" \
+    --parameter-overrides ID="uadapeople-nhannv13"  \
+    --tags project=udapeople
+
+aws cloudformation deploy \
+    --template-file .circleci/files/cloudfront.yml \
+    --stack-name "initialstack" \
+    --parameter-overrides WorkflowID="uadapeople-nhannv13"
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#finding-an-ami-aws-cli
+
+  install_deps:
+    description: Install dependencies
+      steps:
+        - run:
+          name: Install dependencies
+          command: | 
+            yum -y install tar gzip unzip zip python-dev
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscli.zip"
+            unzip awscli.zip
+            ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+
+6UsKZJJt35sq1DwqwqNDaM
